@@ -414,3 +414,10 @@ cc_library_shared {
     compile_multilib: "64",
     vendor: true,
 }
+
+cc_library_shared {
+    name: "libnosprotos_shim",
+    srcs: ["libnosprotos/keymaster.cpp"],
+    shared_libs: ["libnosprotos"],
+    vendor: true,
+}
