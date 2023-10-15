@@ -1,14 +1,10 @@
 #include "nugget/app/keymaster/keymaster.pb.h"
 
 #define SHIM_C1Ev(class_name, number) \
-extern "C" void _ZN6nugget3app9keymaster##number##class_name##C1Ev(nugget::app::keymaster::class_name* obj) { \
-    new (obj) nugget::app::keymaster::class_name; \
-}
+extern "C" void _ZN6nugget3app9keymaster##number##class_name##C1Ev(nugget::app::keymaster::class_name* obj) {}
 
 #define SHIM_D1Ev(class_name, number) \
-extern "C" void _ZN6nugget3app9keymaster##number##class_name##D1Ev(nugget::app::keymaster::class_name* obj) { \
-    obj->~class_name(); \
-}
+extern "C" void _ZN6nugget3app9keymaster##number##class_name##D1Ev(nugget::app::keymaster::class_name* obj) {}
 
 SHIM_C1Ev(DeleteKeyRequest, 16)
 SHIM_C1Ev(ExportKeyRequest, 16)
